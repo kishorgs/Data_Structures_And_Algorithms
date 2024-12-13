@@ -25,6 +25,7 @@ public class math {
             }
         }
         System.out.println(max);
+        
 
         // Better solution (Complexity O(n/2))
         for (int i = Math.min(m, n); i > 0; i--) {
