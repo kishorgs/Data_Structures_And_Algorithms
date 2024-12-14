@@ -73,6 +73,13 @@ public class recursion {
         return palindrome(str, l + 1);
     }
 
+    public static int fib(int n) {
+        if (n <= 1) {
+            return n;
+        }
+        return fib(n - 1) + fib(n - 2);
+    }
+
     public static void main(String args[]) {
         recursion r = new recursion();
         int[] arr = { 1, 2, 3, 4, 5 };
@@ -87,6 +94,10 @@ public class recursion {
             System.out.println("Palindrome");
         } else {
             System.out.println("Not a plaindrome");
+        }
+
+        for (int i = 0; i < 10; i++) {
+            System.out.println(fib(i));
         }
     }
 }
