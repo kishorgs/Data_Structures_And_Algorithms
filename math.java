@@ -15,6 +15,7 @@ public class math {
             }
         }
         System.out.println(max);
+        
 
         // Average method (Complexity O(n/2))
         for (int i = 1; i <= Math.min(n, m) / 2; i++) {
