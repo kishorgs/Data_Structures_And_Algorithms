@@ -69,7 +69,6 @@ public class recursion {
         if (str.charAt(l) != str.charAt(r)) {
             return false;
         }
-
         return palindrome(str, l + 1);
     }
 
