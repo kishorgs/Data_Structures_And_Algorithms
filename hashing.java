@@ -101,9 +101,7 @@ public class hashing {
                 charCountMap.put(c, 1);
             }
         }
-
         System.out.println(charCountMap.get('H'));
-
     }
 
     public static void minMaxKey() {
