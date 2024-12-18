@@ -31,7 +31,6 @@ public class recursion {
 
     // method to print sum
     public static void printSum(int n, int sum) {
-
         if (n == 0) {
             System.out.println(sum);
             return;
