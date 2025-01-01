@@ -24,7 +24,6 @@ public class hashing {
         for (int i = 0; i < arr.length; i++) {
             hash[arr[i]]++;
         }
-
         System.out.println(hash[3]);
     }
 
