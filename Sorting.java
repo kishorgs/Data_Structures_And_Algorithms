@@ -62,7 +62,6 @@ class Sorting {
     public static void main(String[] args) {
         int[] arr = {14, 9, 15, 12, 6, 8, 13};
         int n = arr.length;
-
         Sorting sorting = new Sorting();
 
         System.out.println("Original Array:");
