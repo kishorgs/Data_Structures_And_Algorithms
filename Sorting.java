@@ -75,6 +75,5 @@ class Sorting {
 
         int[] arr3 = arr.clone();
         sorting.selection_sort(arr3, n);
-         
     }
 }
