@@ -1,7 +1,6 @@
 class Sorting {
 
-     // Bubble Sort
-    // This algorithm repeatedly compares adjacent elements and swaps them if they are in the wrong order. It "bubbles" the largest element to the end of the array in each pass.
+    // Bubble Sort
     void bubble_sort(int[] arr, int n) {
         for (int i = 0; i < n - 1; i++) {
             for (int j = 0; j < n - 1 - i; j++) {
@@ -15,7 +14,6 @@ class Sorting {
     }
 
     // Selection Sort
-    // This algorithm divides the array into a sorted and unsorted part. It selects the smallest element from the unsorted part and swaps it with the first element of the unsorted part.
     void selection_sort(int[] arr, int n) {
         for (int i = 0; i < n - 1; i++) {
             int minIndex = i;
@@ -31,7 +29,6 @@ class Sorting {
     }
 
     // Insertion Sort
-    // This algorithm divides the array into a sorted and unsorted part. It iteratively takes elements from the unsorted part and inserts them into the correct position in the sorted part.
     void insertion_sort(int[] arr, int n) {
         for (int i = 0; i < n; i++) {
             int j = i;
@@ -42,7 +39,59 @@ class Sorting {
         }
         System.out.println("Array after Insertion Sort:");
         printArray(arr);
-    } 
+    }
+
+    // Merge Sort
+    void merge_sort(int[] arr, int low, int high) {
+        if (low < high) {
+            int mid = low + (high - low) / 2;
+
+            merge_sort(arr, low, mid);
+            merge_sort(arr, mid + 1, high);
+
+            merge(arr, low, mid, high);
+        }
+    }
+
+    // Merge Function for Merge Sort
+    void merge(int[] arr, int low, int mid, int high) {
+        int n1 = mid - low + 1;
+        int n2 = high - mid;
+
+        int[] leftArray = new int[n1];
+        int[] rightArray = new int[n2];
+
+        for (int i = 0; i < n1; i++) {
+            leftArray[i] = arr[low + i];
+        }
+        for (int j = 0; j < n2; j++) {
+            rightArray[j] = arr[mid + 1 + j];
+        }
+
+        int i = 0, j = 0, k = low;
+        while (i < n1 && j < n2) {
+            if (leftArray[i] <= rightArray[j]) {
+                arr[k] = leftArray[i];
+                i++;
+            } else {
+                arr[k] = rightArray[j];
+                j++;
+            }
+            k++;
+        }
+
+        while (i < n1) {
+            arr[k] = leftArray[i];
+            i++;
+            k++;
+        }
+
+        while (j < n2) {
+            arr[k] = rightArray[j];
+            j++;
+            k++;
+        }
+    }
 
     // Method to print the array
     void printArray(int[] arr) {
@@ -75,5 +124,10 @@ class Sorting {
 
         int[] arr3 = arr.clone();
         sorting.selection_sort(arr3, n);
+
+        int[] arr4 = arr.clone();
+        sorting.merge_sort(arr4, 0, n - 1);
+        System.out.println("Array after Merge Sort:");
+        sorting.printArray(arr4);
     }
 }
