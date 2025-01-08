@@ -9,7 +9,7 @@ public class Sorting {
                 }
             }
         }
-        System.out.println("Array after Bubble Sort:");
+        System.out.println("Array after Bubble Sort:"); 
         printArray(arr);
     }
 
