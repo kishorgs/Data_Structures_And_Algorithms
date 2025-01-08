@@ -24,7 +24,7 @@ public class Sorting {
             }
             swap(arr, i, minIndex);
         }
-        System.out.println("Array after Selection Sort:");
+        System.out.println("Array after Selection Sort:"); 
         printArray(arr);
     }
 
