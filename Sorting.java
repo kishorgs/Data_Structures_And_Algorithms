@@ -139,5 +139,6 @@ public class Sorting {
         sorting.quick_sort(arr5, 0, n - 1);
         System.out.println("Array after Quick Sort:");
         sorting.printArray(arr5);
+        
     }
 }
