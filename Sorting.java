@@ -103,7 +103,7 @@ public class Sorting {
         for (int num : arr) {
             System.out.print(num + " ");
         }
-        System.out.println();
+        System.out.println(); 
     }
 
     // Swap method
