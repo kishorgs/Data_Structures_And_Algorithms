@@ -1,4 +1,4 @@
-class Sorting {
+public class Sorting {
 
     // Bubble Sort
     void bubble_sort(int[] arr, int n) {
@@ -53,44 +53,49 @@ class Sorting {
         }
     }
 
-    // Merge Function for Merge Sort
     void merge(int[] arr, int low, int mid, int high) {
-        int n1 = mid - low + 1;
-        int n2 = high - mid;
+        int b[] = new int[high - low + 1];
+        int n1 = low, n2 = mid + 1, x = 0;
 
-        int[] leftArray = new int[n1];
-        int[] rightArray = new int[n2];
-
-        for (int i = 0; i < n1; i++) {
-            leftArray[i] = arr[low + i];
-        }
-        for (int j = 0; j < n2; j++) {
-            rightArray[j] = arr[mid + 1 + j];
-        }
-
-        int i = 0, j = 0, k = low;
-        while (i < n1 && j < n2) {
-            if (leftArray[i] <= rightArray[j]) {
-                arr[k] = leftArray[i];
-                i++;
+        while (n1 <= mid && n2 <= high) {
+            if (arr[n1] <= arr[n2]) {
+                b[x++] = arr[n1++];
             } else {
-                arr[k] = rightArray[j];
-                j++;
+                b[x++] = arr[n2++];
             }
-            k++;
         }
+        while (n1 <= mid) {
+            b[x++] = arr[n1++];
+        }
+        while (n2 <= high) {
+            b[x++] = arr[n2++];
+        }
+        for (int i = 0, j = low; i < b.length; i++, j++) {
+            arr[j] = b[i];
+        }
+    }
 
-        while (i < n1) {
-            arr[k] = leftArray[i];
-            i++;
-            k++;
+    // Quick Sort
+    void quick_sort(int[] arr, int low, int high) {
+        if (low < high) {
+            int pidx = partition(arr, low, high);
+            quick_sort(arr, low, pidx - 1);
+            quick_sort(arr, pidx + 1, high);
         }
+    }
 
-        while (j < n2) {
-            arr[k] = rightArray[j];
-            j++;
-            k++;
+    int partition(int[] arr, int low, int high) {
+        int pivot = arr[high];
+        int i = low - 1;
+        for (int j = low; j < high; j++) {
+            if (arr[j] < pivot) {
+                i++;
+                swap(arr, i, j);
+            }
         }
+        i++;
+        swap(arr, i, high);
+        return i;
     }
 
     // Method to print the array
@@ -129,5 +134,10 @@ class Sorting {
         sorting.merge_sort(arr4, 0, n - 1);
         System.out.println("Array after Merge Sort:");
         sorting.printArray(arr4);
+
+        int[] arr5 = arr.clone();
+        sorting.quick_sort(arr5, 0, n - 1);
+        System.out.println("Array after Quick Sort:");
+        sorting.printArray(arr5);
     }
 }
