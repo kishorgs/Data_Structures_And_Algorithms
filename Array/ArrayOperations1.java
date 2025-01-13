@@ -47,3 +47,4 @@ public class Main {
         System.out.println("Index of second maximum element: " + findMaxIndex(arr));
     }
 }
+
