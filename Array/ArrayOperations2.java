@@ -8,7 +8,7 @@ class Solution {
         reverse(nums, k, n - 1);
     }
 
-    // Helper method to reverse a part of the array
+    // Method to reverse a part of the array
     private void reverse(int[] nums, int start, int end) {
         while (start < end) {
             int temp = nums[start];
@@ -31,12 +31,10 @@ class Solution {
         }
         return index;
     }
-
-    // Main method to test both functionalities
+    
     public static void main(String[] args) {
         Solution solution = new Solution();
 
-        // Testing the rotate method
         int[] nums1 = {1, 2, 3, 4, 5, 6, 7};
         int k = 3;
         System.out.println("Original array: ");
@@ -45,7 +43,6 @@ class Solution {
         System.out.println("Array after rotation: ");
         printArray(nums1);
 
-        // Testing the removeDuplicates method
         int[] nums2 = {1, 1, 2, 2, 3, 3, 4, 4};
         System.out.println("Original sorted array: ");
         printArray(nums2);
@@ -56,7 +53,6 @@ class Solution {
         }
     }
 
-    // Helper method to print an array
     private static void printArray(int[] nums) {
         for (int num : nums) {
             System.out.print(num + " ");
